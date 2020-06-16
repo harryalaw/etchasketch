@@ -1,0 +1,11 @@
+.canvas{
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+.pixel{
+    background-color: #f2f2f2;
+    width: 20px;
+    height: 20px;
+}

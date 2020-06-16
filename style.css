@@ -1,11 +1,42 @@
+:root {
+    --gridSize: 0;
+    --pixelSize: 0;
+}
+
+
 .canvas{
     display: grid;
-    grid-template-columns: 1fr;
-
+    grid-template-columns: repeat(var(--gridSize),var(--pixelSize));
+    grid-template-rows: repeat(var(--gridSize),var(--pixelSize));
+    width: 800px;
+    /* flex-grow: 2 0px; */
 }
 
 .pixel{
-    background-color: #f2f2f2;
-    width: 20px;
-    height: 20px;
+    background-color: #FFFFFF;
+   /* font-size: 5px; */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+.pixel:hover{
+    background-color: black;
+}
+
+/* .row{
+    display: grid;
+} */
+
+.container{
+    display: flex;
+    justify-content: flex-start;
+    width: 800px;
+    height: 640px;
+
+}
+.toolbar{
+    background-color: fuchsia;
+    width: 200px;
+    height: auto;
 }

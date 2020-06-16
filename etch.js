@@ -1,33 +1,61 @@
-function initialise(pixels) {
+function initialise(userInput) {
     let canvas = document.querySelector('.canvas');
-    for (let i = 0; i < pixels; i++) {
-        for (let j = 0; j < pixels; j++) {
+    for (let i = 0; i < userInput; i++) {
+        for (let j = 0; j < userInput; j++) {
             let cell = document.createElement(`div`);
             cell.classList.add('pixel');
-            cell.textContent = `${i},${j}`;
+            // cell.textContent = `${i},${j}`;
             canvas.appendChild(cell);
         }
     }
+    let root = document.documentElement;
+    let percentage = 100 / userInput;
+    percentage += "%"
+    root.style.setProperty('--gridSize', userInput);
+    root.style.setProperty('--pixelSize', percentage);
+    const cells = document.querySelectorAll('.pixel');
+    cells.forEach(cell => cell.addEventListener('mouseover', colourCell))
 }
 //problems come from inputs from prompt being strings!
+function userSize() {
+    do {
+        userInput = parseInt(prompt('What size grid do you want?'));
+    } while (!(Number.isInteger(userInput)) || userInput <= 0)
+    return userInput;
+}
+
+
 let userInput;
-do {
-    userInput = parseInt(prompt('What size grid do you want?'));
-} while (!(Number.isInteger(userInput)) || userInput <= 0)
-
-//this isn't really happy with what's going on here;
-//doesn't properly send the repeat through;
-//could be to do with the fact that it's taking a variable and not a fixed value
-function updateGrid(userInput){
-    const repeatVal =userInput;
-    document.querySelector('.canvas').style.gridTemplateColumns = 'repeat(repeatVal, 1fr)';
-    document.querySelector('.canvas').style.gridTemplateRows = 'repeat(repeatVal,1fr)';
-}
-
-
+userInput = userSize();
 initialise(userInput);
-updateGrid(userInput);
 
-function updateColumns(){
-    document.querySelector('.canvas').style.gridTemplateColumns = "200px 200px";
+
+
+const button = document.getElementById('reset');
+button.addEventListener('click', refreshGrid);
+
+function colourCell(e) {
+    e.target.style.backgroundColor = "black";
 }
+
+
+function resetGrid() {
+    // cells.forEach(cell => cell.style.backgroundColor = "white");
+    const canvas = document.querySelector('.canvas')
+    while (canvas.firstChild) {
+        canvas.removeChild(canvas.lastChild)
+    }
+}
+
+function refreshGrid(e) {
+    resetGrid();
+    userInput = userSize();
+    initialise(userInput);
+}
+
+// function updateColumns(){
+//     document.querySelector('.canvas').style.gridTemplateColumns = "200px 200px";
+// }
+
+//I think the "pixels" are taking up a percentage of the div that they are in-not the divs taking a
+//percentage of the column;

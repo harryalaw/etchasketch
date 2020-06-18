@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Etch-a-Sketch`</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <header>Etch A Sketch!</header>
-    <body class ="container">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Etch-a-Sketch`</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Etch-a-Sketch!</h1>
+        <p>Just drag your mouse to draw!</p>
+    </div>
+    <div class="container">
         <div class="toolbar">
-            <button id="reset">Clear Grid</button>
+            <button class="button resets" id="clear">Clear Grid</button>
+            <button class="button resets" id="resize">Resize Grid</button>
+            <p>Current colour: </p>
+            <div class="square"></div>
+            <h2>Change colour:</h2>
+            <div class="colorList">
+                <div>
+                    <input type="button" class="button" id="black" name="color" value="Black"> 
+                </div>
+                <div>
+                    <input type="button" class="button" id="red" name="color" value="Red"> 
+                </div>
+                <div>
+                    <input type="button" class="button" id="green" name="color" value="Green"> 
+                </div>
+                <div> 
+                    <input type="button" class="button" id="blue" name="color" value="Blue"> 
+                </div>
+                <div> 
+                    <input type="button" class="button" id="yellow" name="color" value="Yellow"> 
+                </div>
+                <div> 
+                    <input type="button" class="button" id="orange" name="color" value="Orange"> 
+                </div>
+                <div> 
+                    <input type="button" class="button" id="purple" name="color" value="Purple"> 
+                </div>
+                <div>
+                    <input type="button" class="button" id="random" name="color" value="Random">  
+                </div>
+                <div>
+                    <input type="button" class="button" id="randomEach" name="color" value="Random Everytime">  
+                </div>
+
+
+            </div>
         </div>
         <div class="canvas"></div>
-    </body>
-    <script src="etch.js"></script>
+    </div>
+</body>
+<script src="etch.js"></script>
+
 </html>

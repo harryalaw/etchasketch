@@ -1,2 +1,3 @@
-## A browser based Etch-a-sketch type thing
-##Project from the-odin-project
+## Browser based etch-a-sketch based app
+
+Project from the-odin-project

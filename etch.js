@@ -22,7 +22,7 @@ function initialise(userInput) {
     const cells = document.querySelectorAll('.pixel');
     cells.forEach(cell => cell.addEventListener('mouseover', colorCell))
 }
-//problems come from inputs from prompt being strings!
+
 function userSize() {
     do {
         userInput = parseInt(prompt('What size grid do you want?'));

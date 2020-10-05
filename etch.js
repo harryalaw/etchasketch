@@ -26,6 +26,14 @@ function initialise(userInput) {
 function userSize() {
     do {
         userInput = parseInt(prompt('What size grid do you want?'));
+        if (userInput > 32) {
+            if (confirm(`Larger sizes may cause performance issues, are you sure you want a ${userInput}x${userInput} grid?`)) {
+                userInput = userInput
+            }
+            else {
+                userInput = parseInt(prompt('What size grid do you want?'))
+            }
+        }
         if (!userInput) return 16;
     } while (!(Number.isInteger(userInput)) || userInput <= 0)
     return userInput;
